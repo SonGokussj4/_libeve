@@ -26,7 +26,7 @@ fi
 
 
 # Will get user(name, e-mail) and git(name, e-mail)
-fun;tion getUserIdentity () {
+function getUserIdentity () {
     user_email="$(id -un)@evektor.cz"
     git_email="$(git config --list | grep user.email | cut -d "=" -f 2)"
     user_name="$(getent passwd $(id -un) | \
