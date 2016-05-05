@@ -25,8 +25,9 @@ else
 fi
 
 
-# Will get user(name, e-mail) and git(name, e-mail)
 function getUserIdentity () {
+    # Will get user(name, e-mail) and git(name, e-mail)
+
     user_email="$(id -un)@evektor.cz"
     git_email="$(git config --list | grep user.email | cut -d "=" -f 2)"
     user_name="$(getent passwd $(id -un) | \
@@ -36,15 +37,17 @@ function getUserIdentity () {
 
 
 function checkOtherOptions () {
+    # Check other options described in this function
+
     push_settings=$(git config --list | grep "push.default=simple" || echo "false")
     color_ui=$(git config --list | grep "color.ui=true" || echo "false")
 }
 
 
-# Checks if user has a wrong default (git) form of e-mail and user name.
-# If yes, git config is automatically configured to:
-# E-mail: whoami@evektor.cz | User-name: in form LASTname FIRSTname
 function checkIdentity () {
+    # Checks if user has a wrong default (git) form of e-mail and user name.
+    # If yes, git config is automatically configured to:
+    # E-mail: whoami@evektor.cz | User-name: in form LASTname FIRSTname
 
     # Initial variables
     identity_change=false
