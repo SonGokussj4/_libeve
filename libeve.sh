@@ -45,6 +45,11 @@ function checkOtherOptions () {
 # If yes, git config is automatically configured to:
 # E-mail: whoami@evektor.cz | User-name: in form LASTname FIRSTname
 function checkIdentity () {
+
+    # Initial variables
+    identity_change=false
+
+    # Variable for optional "no echo" report
     opt_no_verbal=${1:-unset}
 
     echo "Checking your GIT identity..."
